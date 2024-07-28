@@ -18,12 +18,12 @@ end
 
 function M.watch_ft(ft)
   -- check if all cmds executable before registering formatter
-  iter(require('guard.filetype')[ft].formatter):any(function(config)
-    if config.cmd and vim.fn.executable(config.cmd) ~= 1 then
-      error(config.cmd .. ' not executable', 1)
-    end
-    return true
-  end)
+  -- iter(require('guard.filetype')[ft].formatter):any(function(config)
+    -- if config.cmd and vim.fn.executable(config.cmd) ~= 1 then
+      -- error(config.cmd .. ' not executable', 1)
+    -- end
+    -- return true
+  -- end)
 
   au('FileType', {
     group = group,
@@ -83,12 +83,12 @@ end
 
 local debounce_timer = nil
 function M.register_lint(ft, events)
-  iter(require('guard.filetype')[ft].linter):any(function(config)
-    if config.cmd and vim.fn.executable(config.cmd) ~= 1 then
-      error(config.cmd .. ' not executable', 1)
-    end
-    return true
-  end)
+  -- iter(require('guard.filetype')[ft].linter):any(function(config)
+    -- if config.cmd and vim.fn.executable(config.cmd) ~= 1 then
+      -- error(config.cmd .. ' not executable', 1)
+    -- end
+    -- return true
+  -- end)
 
   au('FileType', {
     pattern = ft,
